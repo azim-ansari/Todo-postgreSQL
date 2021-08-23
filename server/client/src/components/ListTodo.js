@@ -33,33 +33,44 @@ const ListTodo = () => {
 			{Object.keys(todo).length === 0 ? (
 				<div>...loading</div>
 			) : (
+				// <span class='border-top-0'>
 				<div className='container'>
-					<table class='table'>
-						<thead>
-							<tr>
-								<th>todo_id</th>
-								<th>Description</th>
-								<th>Edit</th>
-								<th>Delete</th>
-							</tr>
-						</thead>
-						<tbody>
-							{todo.map((item) => (
-								<tr>
-									<td>{item.todo_id}</td>
-									<td>{item.description}</td>
-									<td>
-										<EditTodo todo={item} />
-									</td>
-									<td>
-										<button className='btn btn-danger' onClick={() => deleteTodo(item.todo_id)}>
-											Delete
-										</button>
-									</td>
+					<div className='border'>
+						<table class='table'>
+							<thead>
+								<tr className='container bg-dark'>
+									<th>
+										<h1 className='badge badge-primary'>todo_id</h1>
+									</th>
+									<th>
+										<h1 className='badge badge-success'>Description</h1>
+									</th>
+									<th>
+										<h1 className='badge badge-warning'>Edit</h1>
+									</th>
+									<th>
+										<h1 className='badge badge-danger'>Delete</h1>
+									</th>
 								</tr>
-							))}
-						</tbody>
-					</table>
+							</thead>
+							<tbody>
+								{todo.map((item) => (
+									<tr>
+										<td>{item.todo_id}</td>
+										<td>{item.description}</td>
+										<td>
+											<EditTodo todo={item} />
+										</td>
+										<td>
+											<button className='btn btn-danger' onClick={() => deleteTodo(item.todo_id)}>
+												Delete
+											</button>
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
 				</div>
 			)}
 		</>

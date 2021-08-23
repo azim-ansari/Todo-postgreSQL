@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 
 const InputTodo = () => {
 	const [description, setDescription] = useState('');
-
 	const submitHandler = async (e) => {
 		e.preventDefault();
 		try {
@@ -21,15 +20,20 @@ const InputTodo = () => {
 	};
 	return (
 		<div className='container' style={{ background: 'sky' }}>
-			<form className='d-flex mt-5' onSubmit={submitHandler}>
-				<input
-					type='text'
-					className='form-control'
-					value={description}
-					onChange={(e) => setDescription(e.target.value)}
-				/>
-				<button className='btn btn-success col-md-3'>Add</button>
-			</form>
+			<h1 className='box'>PERN Todo App</h1>
+			<div className='border'>
+				<form className='box d-flex m-2' onSubmit={submitHandler}>
+					<input
+						type='text'
+						className='form-control col-ml-5'
+						placeholder='e.g: task'
+						value={description}
+						onChange={(e) => setDescription(e.target.value)}
+						required
+					/>
+					<button className='btn btn-dark col-5'>Add</button>
+				</form>
+			</div>
 		</div>
 	);
 };
